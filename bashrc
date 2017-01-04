@@ -32,3 +32,6 @@ vim-git-diff() {
     eval $vim_cmd
     return 0
 }
+ssh-vi() {
+    ssh -t $1 "bash -i -o vi"
+}
