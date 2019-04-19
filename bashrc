@@ -9,6 +9,12 @@ if [ 0 -eq $UID ]; then
             PS1='\[\033[01;31m\][\w]\[\033[00m\] ';;
     esac
 fi
+for bcfile in ~/.bash_completion.d/* ; do
+    [ -f "$bcfile" ] && . $bcfile
+done
+shelm () {
+    ( helm --tiller-namespace=tiller "$@" --tls )
+}
 vim-git-diff() {
     if [ $# -eq 0 ]
     then
